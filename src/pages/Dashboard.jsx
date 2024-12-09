@@ -112,13 +112,13 @@ const Dashboard = () => {
       {/* Section Boutons */}
       <section className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 px-4">
         {/* Créer une Tontine */}
-        <div className="bg-green-500 hover:bg-green-600 text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
           <FontAwesomeIcon icon={faPlus} className="mr-3 text-2xl" />
           Créer une tontine
         </div>
 
         {/* Rejoindre une Tontine */}
-        <div className="bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
           <FontAwesomeIcon icon={faSignInAlt} className="mr-3 text-2xl" />
           Rejoindre une tontine
         </div>

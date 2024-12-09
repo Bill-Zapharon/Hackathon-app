@@ -11,14 +11,15 @@ const Header = () => {
   return (
     <header className="bg-[#1c3b72] text-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center relative">
-        {/* Logo */}
-        <div className="logo">
-          <img
-            src="src/assets/LogoTontine3-removebg-preview.png"
-            alt=""
-            className="h-10 w-auto"
-          />
-        </div>
+  {/* Logo */}
+  <div className="logo">
+    <img
+      src="src/assets/LogoTontine3 (1).png"
+      alt="Logo"
+      className="h-14 w-auto object-contain" // Taille ajustée du logo
+    />
+</div>
+
 
         {/* Navigation for large screens */}
         <nav className="hidden md:block">
@@ -52,7 +53,7 @@ const Header = () => {
                 href="/login"
                 className="text-gray-300 hover:text-white no-underline transition duration-300"
               >
-                Connexion
+                Quitter
               </a>
             </li>
           </ul>
