@@ -15,8 +15,10 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    // Naviguer vers "/other-page"
     navigate('/creertontine');
+  };
+  const handleNavigate1 = () => {
+    navigate('/listestontine');
   };
   const cardData = [
     {
@@ -125,7 +127,7 @@ const Dashboard = () => {
         </div>
 
         {/* Rejoindre une Tontine */}
-        <div className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div onClick={handleNavigate1} className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
           <FontAwesomeIcon icon={faSignInAlt} className="mr-3 text-2xl" />
           Rejoindre une tontine
         </div>
