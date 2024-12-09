@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DefaultLayout from "../layouts/DefaultLayout";
 import App from "../App";
 import Dashboard from "../pages/Dashboard";
+import CreerTontine from "../pages/CreerTontine";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/creertontine",
+        element: <CreerTontine />,
       },
     ],
   },

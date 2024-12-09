@@ -138,7 +138,7 @@ const Dashboard = () => {
                 </p>
               </div>
               <div>
-                <button className="px-4 py-2 outline-none border-none cursor-pointer bg-buttonPrimary text-white text-sm font-medium rounded-md hover:bg-secondary transition-colors duration-200">
+                <button className="px-4 py-2 outline-none border-none cursor-pointer bg-[#93d500] text-white text-sm font-medium rounded-md hover:bg-[#628d00] transition-colors duration-200">
                   Voir détails
                   {tontine.isOwner && (
                     <span className="ml-2 text-xs font-light text-gray-200">
