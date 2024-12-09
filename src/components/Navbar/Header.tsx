@@ -11,15 +11,14 @@ const Header = () => {
   return (
     <header className="bg-[#1c3b72] text-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center relative">
-  {/* Logo */}
-  <div className="logo">
-    <img
-      src="src/assets/LogoTontine3 (1).png"
-      alt="Logo"
-      className="h-14 w-auto object-contain" // Taille ajustée du logo
-    />
-</div>
-
+        {/* Logo */}
+        <div className="logo">
+          <img
+            src="src/assets/LogoTontine3 (1).png"
+            alt="Logo"
+            className="h-14 w-auto object-contain" // Taille ajustée du logo
+          />
+        </div>
 
         {/* Navigation for large screens */}
         <nav className="hidden md:block">
@@ -67,7 +66,9 @@ const Header = () => {
             aria-label="Toggle Menu"
           >
             <svg
-              className="w-6 h-6"
+              className={`w-6 h-6 transition-transform duration-300 ${
+                isOpen ? "rotate-45" : ""
+              }`} // Animation pour transformer l'icône en croix
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -87,8 +88,10 @@ const Header = () => {
       {/* Dropdown Menu (visible only on mobile when clicked) */}
       <div
         className={`${
-          isOpen ? "block" : "hidden"
-        } md:hidden flex flex-col items-start space-y-4 bg-[#1c3b72] px-4 py-2 transition-all duration-500 ease-in-out delay-100`}
+          isOpen ? "block opacity-100" : "hidden opacity-0"
+        } md:hidden flex flex-col items-start space-y-4 bg-[#1c3b72] px-4 py-2 transition-all duration-500 ease-in-out transform ${
+          isOpen ? "translate-x-0" : "translate-x-10"
+        }`} // Animation fluide pour l'apparition du menu
       >
         <nav>
           <ul className="space-y-4 list-none">

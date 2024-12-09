@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../components/Card";
+import { useNavigate } from 'react-router-dom';
 import {
   faMoneyBillWave,
   faUsers,
@@ -11,6 +12,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import DataTable from "../components/DataTable";
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    // Naviguer vers "/other-page"
+    navigate('/creertontine');
+  };
   const cardData = [
     {
       title: "Contributions Totales",
@@ -112,7 +119,7 @@ const Dashboard = () => {
       {/* Section Boutons */}
       <section className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 px-4">
         {/* Créer une Tontine */}
-        <div className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div onClick={handleNavigate} className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
           <FontAwesomeIcon icon={faPlus} className="mr-3 text-2xl" />
           Créer une tontine
         </div>

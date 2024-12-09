@@ -1,4 +1,3 @@
-import Header from "./components/Navbar/Header";
 import Dashboard from "./pages/Dashboard";
 
 function App() {
