@@ -82,9 +82,19 @@ const Dashboard = () => {
 
   return (
     <div className="bg-grisClair w-full">
-      <section>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cardData.map((data) => {
+      {/* Section Image */}
+      <div className="relative h-[250px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-2xl">
+        <img
+          src="/src/assets/tontine.jpg" // Remplace avec ton URL d'image
+          alt="Dashboard"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Les Cartes */}
+      <section className="-mt-12 md:-mt-16 lg:-mt-20 z-10 relative px-4">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {cardData.map((data) => {
             return (
               <Card
                 key={data.title}
@@ -96,7 +106,7 @@ const Dashboard = () => {
           })}
         </div>
       </section>
-
+      
       <section className="mt-8">
         <div className="flex justify-between">
           <h2 className="text-lg font-semibold text-textPrimary mb-6">
