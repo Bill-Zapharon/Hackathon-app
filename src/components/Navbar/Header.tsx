@@ -14,8 +14,8 @@ const Header = () => {
         {/* Logo */}
         <div className="logo">
           <img
-            src="path/to/your/logo.png"
-            alt="Tontine Logo"
+            src="src/assets/LogoTontine3-removebg-preview.png"
+            alt=""
             className="h-10 w-auto"
           />
         </div>
