@@ -11,6 +11,7 @@ import TontineDetailsAdmin from "../pages/TontinesDetailsAdmin";
 import Historique from "../pages/Historique";
 import InfoTontine from "../pages/InfoTontine";
 import Contact from "../pages/Contact";
+import PayementPage from "../pages/PayementPage";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/payementpage",
+        element: <PayementPage />,
       },
     ],
   },
