@@ -105,7 +105,7 @@ const Dashboard = () => {
         {/* Créer une Tontine */}
         <div
           onClick={handleNavigate}
-          className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
+          className="bg-[#93d500]  text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
         >
           <FontAwesomeIcon icon={faPlus} className="mr-3 text-2xl" />
           Créer une tontine
@@ -114,7 +114,7 @@ const Dashboard = () => {
         {/* Rejoindre une Tontine */}
         <div
           onClick={handleNavigate1}
-          className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
+          className="bg-blue-900  text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
         >
           <FontAwesomeIcon icon={faSignInAlt} className="mr-3 text-2xl" />
           Rejoindre une tontine

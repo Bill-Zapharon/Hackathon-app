@@ -34,7 +34,7 @@ const Header = () => {
   const currentUser = user || users[0]; // Utiliser l'utilisateur du contexte ou le premier utilisateur de la liste
 
   return (
-    <header className="bg-[#1c3b72] text-white shadow-md">
+    <header className="bg-[#1E3A8A] text-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo */}
         <div onClick={handleNavigate} className="logo hover:cursor-pointer">
