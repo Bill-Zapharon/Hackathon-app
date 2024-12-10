@@ -8,8 +8,8 @@ const EnAttente: React.FC = () => {
   const tontineNom = location.state?.tontineNom || "Tontine inconnue";
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
-      <h1 className="text-3xl font-bold text-yellow-500 mb-4">
+    <div className="pt-10 flex flex-col items-center h-screen bg-gray-50">
+      <h1 className="text-center text-3xl font-bold text-yellow-500 mb-4">
         Demande en attente
       </h1>
       <p className="text-center text-gray-700 max-w-md">
