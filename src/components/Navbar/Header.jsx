@@ -1,5 +1,5 @@
 // src/Header.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../../contexts/UserContext"; // Si tu utilises un contexte
 // src/Header.js
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/dashboard");
+    navigate("/home");
   };
 
   useEffect(() => {
