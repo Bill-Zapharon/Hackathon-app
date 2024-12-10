@@ -8,8 +8,8 @@ const DefaultLayout = () => {
   return (
     <TontineProvider>
       <div className="min-h-screen bg-grisClair flex flex-col">
-        <Header />
-        <main className="container mx-auto px-4 md:px-8 py-6">
+        <Header /> 
+        <main className="container mx-auto px-4 md:px-8 py-6 flex-grow">
           <Outlet />
         </main>
         <Footer />

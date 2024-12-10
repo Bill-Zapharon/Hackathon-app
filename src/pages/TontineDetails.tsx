@@ -1,18 +1,19 @@
 // src/pages/TontineDetails.tsx
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import { useTontines } from "../contexts/TontineContext";
 import { Tontine } from "./Tontine";
 
 const TontineDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { tontines } = useTontines();
+  const navigate = useNavigate(); // Initialize navigate
   const [tontine, setTontine] = useState<Tontine | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const handleJoinTontine = (tontineId) => {
-    alert(`Rejoindre la Tontine avec ID: ${tontineId}`);
-    // Plus tard, cette fonction déclenchera un appel API
+  const handleJoinTontine = (tontineId: number, tontineNom: string) => {
+    // Redirige avec le nom de la tontine dans state
+    navigate(`/en-attente/${tontineId}`, { state: { tontineNom } });
   };
 
   useEffect(() => {
@@ -66,7 +67,7 @@ const TontineDetails: React.FC = () => {
           </button>
         </Link>
         <button
-          onClick={() => handleJoinTontine(tontine.id)}
+          onClick={() => handleJoinTontine(tontine.id, tontine.nom)}
           className="w-full max-w-xs bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition-transform transform hover:scale-105 cursor-pointer"
         >
           Rejoindre cette Tontine
