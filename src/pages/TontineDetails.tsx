@@ -1,31 +1,53 @@
-// src/pages/TontineDetails.tsx
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom"; // Import useNavigate
-import { useTontines } from "../contexts/TontineContext";
+import { useParams, Link, useNavigate } from "react-router-dom"; // Import de useNavigate
 import { Tontine } from "./Tontine";
 
 const TontineDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const { tontines } = useTontines();
-  const navigate = useNavigate(); // Initialize navigate
+  const { id } = useParams<{ id: string }>(); // Récupérer l'ID depuis l'URL
+  const navigate = useNavigate(); // Pour rediriger l'utilisateur
   const [tontine, setTontine] = useState<Tontine | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleJoinTontine = (tontineId: number, tontineNom: string) => {
-    // Redirige avec le nom de la tontine dans state
-    navigate(`/en-attente/${tontineId}`, { state: { tontineNom } });
+  // Fonction pour récupérer les données de la tontine
+  const fetchTontineDetails = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/tontines/${id}`);
+      if (!response.ok) {
+        throw new Error("Tontine non trouvée ou erreur serveur.");
+      }
+      const data: Tontine = await response.json();
+      setTontine(data);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || "Erreur lors de la récupération des données.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    if (tontines && id) {
-      const foundTontine = tontines.find((t) => t.id === parseInt(id, 10));
-      setTontine(foundTontine || null);
-      setLoading(false);
+    if (id) {
+      fetchTontineDetails();
     }
-  }, [tontines, id]);
+  }, [id]);
 
+  // Gestion des états (chargement ou erreur)
   if (loading) {
     return <p className="text-center mt-10">Chargement des détails...</p>;
+  }
+
+  if (error) {
+    return (
+      <div className="text-center mt-10">
+        <p className="text-red-500 font-semibold">{error}</p>
+        <Link to="/listestontine">
+          <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
+            Retour à la liste des tontines
+          </button>
+        </Link>
+      </div>
+    );
   }
 
   if (!tontine) {
@@ -41,6 +63,7 @@ const TontineDetails: React.FC = () => {
     );
   }
 
+  // Affichage des détails
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h1 className="text-3xl font-bold mb-4 text-center">{tontine.nom}</h1>
@@ -62,12 +85,16 @@ const TontineDetails: React.FC = () => {
 
       <div className="flex flex-col items-center space-y-4 mt-4">
         <Link to="/listestontine">
-          <button className="w-full max-w-xs bg-blue-700 border none text-white py-3 px-6 rounded-lg hover:bg-[#1c3b72] transition-transform transform hover:scale-105 cursor-pointer">
+          <button className="w-full max-w-xs bg-blue-700 border-none text-white py-3 px-6 rounded-lg hover:bg-[#1c3b72] transition-transform transform hover:scale-105 cursor-pointer">
             Retour à la liste
           </button>
         </Link>
         <button
-          onClick={() => handleJoinTontine(tontine.id, tontine.nom)}
+          onClick={() =>
+            navigate(`/en-attente/${tontine.id}`, {
+              state: { tontineNom: tontine.nom },
+            })
+          }
           className="w-full max-w-xs bg-[#93d500] border-none text-white py-3 px-6 rounded-lg hover:bg-[#628d00] transition-transform transform hover:scale-105 cursor-pointer"
         >
           Rejoindre cette Tontine

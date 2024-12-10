@@ -1,14 +1,10 @@
-<<<<<<< HEAD
 // src/Header.tsx
 import React, { useEffect, useState } from "react";
 import { useUser } from "../../contexts/UserContext"; // Si tu utilises un contexte
-=======
 // src/Header.js
-import Logo from "../../assets/LogoTontine3 (1).png";
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Logo from "../../assets/logo.png";
 
->>>>>>> a70b7da69b10ed5fbde5419acfc508d8e37fca51
 
 const Header = () => {
   const [users, setUsers] = useState([]);
@@ -21,7 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate('/dashboard');
+    navigate("/dashboard");
   };
 
   useEffect(() => {
@@ -42,14 +38,15 @@ const Header = () => {
       <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo */}
         <div onClick={handleNavigate} className="logo hover:cursor-pointer">
-          
           <img
             src={Logo}
             alt="Logo"
-            className="h-12 w-auto object-contain"
+            className="h-14 w-auto object-contain" // Taille ajustée du logo
           />
           <div className="flex space-y-6 list-none">
-          <p>C-<span className="text-[#93d500]">GBE</span></p>
+            <p>
+              C-<span className="text-[#93d500]">GBE</span>
+            </p>
           </div>
         </div>
 

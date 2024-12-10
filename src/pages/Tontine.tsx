@@ -1,10 +1,14 @@
-// src/types/Tontine.ts
 export interface Tontine {
   id: number;
   nom: string;
-  frequence: "Hebdomadaire" | "Mensuelle";
+  frequence: string;
   participantsActuels: number;
   participantsMax: number;
   montant: number;
   description: string;
+  status: string;
+  nextPaymentDate: string;
+  ownerId: number;
+  participants: number[];
+  details?: { title: string; status: string }[];
 }
