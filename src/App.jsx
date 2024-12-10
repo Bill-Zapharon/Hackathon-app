@@ -1,8 +1,9 @@
-import Home from "./pages/Home";
+import { Home } from "lucide-react";
+
 function App() {
   return (
     <div>
-      <Home></Home>
+      <Home />
     </div>
   );
 }
