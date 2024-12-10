@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   return (
@@ -13,9 +14,12 @@ const HomePage: React.FC = () => {
             Rejoignez une communauté transparente et efficace. Planifiez, suivez
             et collaborez sans effort.
           </p>
-          <button className="px-6 py-3 bg-white text-blue-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-200">
-            Commencer maintenant
-          </button>
+          <Link
+            to="/listestontine"
+            className="px-6 py-3 no-underline bg-white text-blue-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-200"
+          >
+            Voir les tontines
+          </Link>
         </div>
       </header>
 
@@ -103,9 +107,12 @@ const HomePage: React.FC = () => {
           <h2 className="text-2xl font-bold mb-4">
             Prêt à transformer votre tontine ?
           </h2>
-          <button className="px-6 py-3 bg-white text-blue-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-200">
-            Rejoindre maintenant
-          </button>
+          <Link
+            to="/listestontine"
+            className="px-6 py-3 no-underline bg-white text-blue-700 rounded-md text-lg font-semibold hover:bg-gray-100 transition duration-200"
+          >
+            Rejoindre une tontine
+          </Link>
         </div>
       </footer>
     </div>
