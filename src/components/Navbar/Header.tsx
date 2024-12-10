@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 // src/Header.tsx
 import React, { useEffect, useState } from "react";
 import { useUser } from "../../contexts/UserContext"; // Si tu utilises un contexte
+=======
+// src/Header.js
+import Logo from "../../assets/LogoTontine3 (1).png";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+>>>>>>> a70b7da69b10ed5fbde5419acfc508d8e37fca51
 
 const Header = () => {
   const [users, setUsers] = useState([]);
@@ -9,6 +17,11 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate('/dashboard');
   };
 
   useEffect(() => {
@@ -28,12 +41,16 @@ const Header = () => {
     <header className="bg-[#1c3b72] text-white shadow-md">
       <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="logo">
+        <div onClick={handleNavigate} className="logo hover:cursor-pointer">
+          
           <img
-            src="src/assets/LogoTontine3 (1).png"
+            src={Logo}
             alt="Logo"
             className="h-12 w-auto object-contain"
           />
+          <div className="flex space-y-6 list-none">
+          <p>C-<span className="text-[#93d500]">GBE</span></p>
+          </div>
         </div>
 
         {/* Navigation */}
@@ -47,6 +64,15 @@ const Header = () => {
                 Accueil
               </a>
             </li>
+            <li>
+              <a
+                href="/historiquepaiement"
+                className="text-gray-300 hover:text-white no-underline transition duration-300"
+              >
+                Historique
+              </a>
+            </li>
+            <li></li>
             <li>
               <a
                 href="/about"

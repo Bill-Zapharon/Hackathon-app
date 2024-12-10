@@ -62,13 +62,13 @@ const TontineDetails: React.FC = () => {
 
       <div className="flex flex-col items-center space-y-4 mt-4">
         <Link to="/listestontine">
-          <button className="w-full max-w-xs bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 cursor-pointer">
+          <button className="w-full max-w-xs bg-blue-700 border none text-white py-3 px-6 rounded-lg hover:bg-[#1c3b72] transition-transform transform hover:scale-105 cursor-pointer">
             Retour à la liste
           </button>
         </Link>
         <button
           onClick={() => handleJoinTontine(tontine.id, tontine.nom)}
-          className="w-full max-w-xs bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition-transform transform hover:scale-105 cursor-pointer"
+          className="w-full max-w-xs bg-[#93d500] border-none text-white py-3 px-6 rounded-lg hover:bg-[#628d00] transition-transform transform hover:scale-105 cursor-pointer"
         >
           Rejoindre cette Tontine
         </button>
