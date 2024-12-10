@@ -1,6 +1,6 @@
-// src/components/TontineList.tsx
+// src/pages/TontineList.tsx
 import React from "react";
-import { Link } from "react-router-dom"; // Importer Link pour la navigation
+import { Link } from "react-router-dom";
 import { Tontine } from "./Tontine";
 
 interface TontineListProps {
@@ -9,32 +9,34 @@ interface TontineListProps {
 
 const TontineList: React.FC<TontineListProps> = ({ tontines }) => {
   return (
-    <div className="p-4">
-      <h2 className="text-2xl text-center font-bold mb-6">
-        Tontines disponibles
+    <div className="max-w-4xl mx-auto p-4">
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        Liste des Tontines
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {tontines.map((tontine) => (
           <div
             key={tontine.id}
-            className="bg-white p-4 shadow-lg rounded-lg flex flex-col justify-between"
+            className="bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition-shadow"
           >
-            <h3 className="text-xl font-semibold mb-2">{tontine.nom}</h3>
-            <p className="text-gray-600 mb-2">Fréquence: {tontine.frequence}</p>
-            <p className="text-gray-600 mb-2">
-              Nombre de participants: {tontine.participantsActuels}/
-              {tontine.participantsMax}
+            <h3 className="text-xl font-semibold text-gray-900">
+              {tontine.nom}
+            </h3>
+            <p className="text-sm text-gray-600 mt-2">
+              <span className="font-medium">Fréquence :</span>{" "}
+              {tontine.frequence}
             </p>
-            <p className="text-gray-600 mb-4">
-              Montant à verser: {tontine.montant}€
+            <p className="text-sm text-gray-600">
+              <span className="font-medium">Participants :</span>{" "}
+              {tontine.participantsActuels} / {tontine.participantsMax}
             </p>
-
-            {/* Lien vers la page des détails de la tontine */}
-            <Link
-              to={`/tontine/${tontine.id}`}
-              className="bg-[#1c3b72] text-center no-underline text-white py-2 px-4 rounded-md transition-all transform hover:scale-105 hover:bg-[#16448e] duration-300"
-            >
-              Détails
+            <p className="text-sm text-gray-600">
+              <span className="font-medium">Montant :</span> {tontine.montant} €
+            </p>
+            <Link to={`/tontine/${tontine.id}`}>
+              <button className="mt-4 w-full bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 hover:scale-105 transition-transform cursor-pointer">
+                Voir Détails
+              </button>
             </Link>
           </div>
         ))}
