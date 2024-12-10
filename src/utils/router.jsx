@@ -9,6 +9,7 @@ import EnAttente from "../pages/EnAttente";
 import TontinesAdmin from "../pages/TontinesAdmin";
 import TontineDetailsAdmin from "../pages/TontinesDetailsAdmin";
 import Historique from "../pages/Historique";
+import InfoTontine from "../pages/InfoTontine";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/historiquepaiement",
         element: <Historique />,
+      },
+      {
+        path: "/infotontine",
+        element: <InfoTontine />,
       },
     ],
   },

@@ -63,6 +63,14 @@ const Header = () => {
             </li>
             <li>
               <a
+                href="/dashboard"
+                className="text-gray-300 hover:text-white no-underline transition duration-300"
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
                 href="/historiquepaiement"
                 className="text-gray-300 hover:text-white no-underline transition duration-300"
               >
@@ -144,6 +152,14 @@ const Header = () => {
                 className="text-gray-300 hover:text-white no-underline transition duration-300"
               >
                 Accueil
+              </a>
+            </li>
+            <li>
+              <a
+                href="/dashboard"
+                className="text-gray-300 hover:text-white no-underline transition duration-300"
+              >
+                Dashboard
               </a>
             </li>
             <li>
