@@ -1,9 +1,8 @@
-// src/pages/EnAttente.tsx
 import React from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
-const EnAttente: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+const EnAttente = () => {
+  const { id } = useParams();
   const location = useLocation();
   const tontineNom = location.state?.tontineNom || "Tontine inconnue";
 

@@ -1,36 +1,15 @@
+// src/pages/TontineDetailsAdmin.jsx
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-interface Member {
-  id: number;
-  name: string;
-  email: string;
-  details: string; // Détails supplémentaires sur le membre
-  status: "pending" | "approved" | "rejected";
-}
-
-interface Tontine {
-  id: number;
-  nom: string;
-  description: string;
-  frequence: string;
-  montant: number;
-  participantsActuels: number;
-  participantsMax: number;
-  members: Member[];
-}
-
-const TontineDetailsAdmin: React.FC = () => {
-  const { userId, tontineId } = useParams<{
-    userId: string;
-    tontineId: string;
-  }>();
-  const [tontine, setTontine] = useState<Tontine | null>(null);
+const TontineDetailsAdmin = () => {
+  const { userId, tontineId } = useParams(); // Paramètres utilisateur
+  const [tontine, setTontine] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+  const [selectedMember, setSelectedMember] = useState(null);
 
   // Simule l'API pour récupérer les détails de la tontine
-  const fetchTontineDetails = (tontineId: string): Promise<Tontine> => {
+  const fetchTontineDetails = (tontineId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -72,10 +51,7 @@ const TontineDetailsAdmin: React.FC = () => {
   };
 
   // Simule l'API pour mettre à jour le statut d'un membre
-  const updateMemberStatus = (
-    memberId: number,
-    newStatus: "approved" | "rejected"
-  ): Promise<void> => {
+  const updateMemberStatus = (memberId, newStatus) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         console.log(
@@ -99,10 +75,7 @@ const TontineDetailsAdmin: React.FC = () => {
       });
   }, [tontineId]);
 
-  const handleStatusChange = (
-    memberId: number,
-    newStatus: "approved" | "rejected"
-  ) => {
+  const handleStatusChange = (memberId, newStatus) => {
     if (tontine) {
       // Met à jour l'état local du statut du membre
       const updatedMembers = tontine.members.map((member) =>

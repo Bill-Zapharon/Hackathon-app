@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom"; // Import de useNavigate
-import { Tontine } from "./Tontine";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
-const TontineDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Récupérer l'ID depuis l'URL
-  const navigate = useNavigate(); // Pour rediriger l'utilisateur
-  const [tontine, setTontine] = useState<Tontine | null>(null);
+const TontineDetails = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [tontine, setTontine] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState(null);
 
-  // Fonction pour récupérer les données de la tontine
   const fetchTontineDetails = async () => {
     try {
       const response = await fetch(`http://localhost:5000/tontines/${id}`);
       if (!response.ok) {
         throw new Error("Tontine non trouvée ou erreur serveur.");
       }
-      const data: Tontine = await response.json();
+      const data = await response.json();
       setTontine(data);
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
       setError(err.message || "Erreur lors de la récupération des données.");
     } finally {
@@ -32,7 +30,6 @@ const TontineDetails: React.FC = () => {
     }
   }, [id]);
 
-  // Gestion des états (chargement ou erreur)
   if (loading) {
     return <p className="text-center mt-10">Chargement des détails...</p>;
   }
@@ -63,7 +60,6 @@ const TontineDetails: React.FC = () => {
     );
   }
 
-  // Affichage des détails
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h1 className="text-3xl font-bold mb-4 text-center">{tontine.nom}</h1>
