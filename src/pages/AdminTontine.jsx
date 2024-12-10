@@ -1,17 +1,10 @@
 // src/pages/AdminTontine.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-interface Member {
-  id: number;
-  name: string;
-  email: string;
-  status: "pending" | "approved" | "rejected";
-}
-
-const AdminTontine: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const [members, setMembers] = useState<Member[]>([]);
+const AdminTontine = () => {
+  const { id } = useParams();
+  const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Charger les membres depuis l'API
@@ -29,10 +22,7 @@ const AdminTontine: React.FC = () => {
   }, [id]);
 
   // Mettre à jour le statut d'un membre
-  const handleUpdateStatus = (
-    memberId: number,
-    newStatus: "approved" | "rejected"
-  ) => {
+  const handleUpdateStatus = (memberId, newStatus) => {
     fetch(`/api/members/${memberId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
