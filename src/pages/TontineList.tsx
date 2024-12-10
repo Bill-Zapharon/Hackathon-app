@@ -34,7 +34,7 @@ const TontineList: React.FC<TontineListProps> = ({ tontines }) => {
               <span className="font-medium">Montant :</span> {tontine.montant} €
             </p>
             <Link to={`/tontine/${tontine.id}`}>
-              <button className="mt-4 w-full bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 hover:scale-105 transition-transform cursor-pointer">
+              <button className="mt-4 w-full bg-[#93d500] text-white border-none text-sm font-semibold py-2 px-4 rounded-lg hover:bg-[#628d00] hover:scale-105 transition-transform cursor-pointer">
                 Voir Détails
               </button>
             </Link>

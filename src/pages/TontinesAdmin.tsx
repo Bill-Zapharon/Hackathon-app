@@ -81,7 +81,7 @@ const TontinesAdmin: React.FC = () => {
                 </p>
                 <Link
                   to={`/user/${userId}/tontines/${tontine.id}`}
-                  className="block mt-4 text-center text-white bg-blue-500 py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+                  className="block mt-4 text-center text-white no-underline bg-[#93d500] py-2 px-4 rounded-lg hover:bg-[#628d00] transition-colors"
                 >
                   Voir les détails
                 </Link>

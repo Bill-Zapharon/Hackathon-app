@@ -1,4 +1,4 @@
-
+import Logo from '../../assets/LogoTontine3 (1).png'
 const Footer = () => {
   return (
     <footer className="bg-[#1c3b72] text-white p-6 mt-8">
@@ -6,7 +6,7 @@ const Footer = () => {
         {/* Logo */}
   <div className="logo">
     <img
-      src="src/assets/LogoTontine3 (1).png"
+      src={Logo}
       alt="Logo"
       className="h-14 w-auto object-contain" // Taille ajustée du logo
     />
