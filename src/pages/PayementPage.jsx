@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-interface Tontine {
-  id: number;
-  nom: string;
-  frequence: "Mensuelle" | "Hebdomadaire";
-  montant: number;
-  participantsActuels: number;
-  nextPaymentDate: string;
-}
-
-const PaymentPage: React.FC = () => {
-  const [tontines, setTontines] = useState<Tontine[]>([]);
+const PayementPage = () => {
+  const [tontines, setTontines] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [paymentStatus, setPaymentStatus] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTontines = async () => {
@@ -30,7 +21,7 @@ const PaymentPage: React.FC = () => {
     fetchTontines();
   }, []);
 
-  const getPaymentAmount = (tontine: Tontine) => {
+  const getPaymentAmount = (tontine) => {
     const today = new Date();
     const nextPaymentDate = new Date(tontine.nextPaymentDate);
 
@@ -51,7 +42,7 @@ const PaymentPage: React.FC = () => {
     return 0;
   };
 
-  const isSameWeek = (date1: Date, date2: Date) => {
+  const isSameWeek = (date1, date2) => {
     const startOfWeek1 = new Date(
       date1.getFullYear(),
       date1.getMonth(),
@@ -66,10 +57,10 @@ const PaymentPage: React.FC = () => {
     return startOfWeek1.getTime() === startOfWeek2.getTime();
   };
 
-  const handlePayment = async (amount: number) => {
+  const handlePayment = async (amount) => {
     setLoading(true);
     try {
-      const response = await axios.post("https://api.celtis.com/payment", {
+      await axios.post("https://api.celtis.com/payment", {
         amount,
         method: "card",
       });
@@ -133,4 +124,4 @@ const PaymentPage: React.FC = () => {
   );
 };
 
-export default PaymentPage;
+export default PayementPage;

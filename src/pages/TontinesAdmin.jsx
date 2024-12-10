@@ -1,22 +1,14 @@
-// src/pages/TontinesAdmin.tsx
+// src/pages/TontinesAdmin.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
-interface Tontine {
-  id: number;
-  nom: string;
-  frequence: string;
-  participantsActuels: number;
-  participantsMax: number;
-}
-
-const TontinesAdmin: React.FC = () => {
-  const { userId } = useParams<{ userId: string }>(); // Paramètre utilisateur
-  const [tontines, setTontines] = useState<Tontine[]>([]);
+const TontinesAdmin = () => {
+  const { userId } = useParams(); // Paramètre utilisateur
+  const [tontines, setTontines] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Fonction simulée pour récupérer les tontines
-  const fetchTontinesByUser = (userId: string): Promise<Tontine[]> => {
+  const fetchTontinesByUser = (userId) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve([

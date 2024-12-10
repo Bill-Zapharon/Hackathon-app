@@ -2,12 +2,82 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <script src="./js-sdk.min.js"></script>
+    <script src="./vconsole.min.js"></script>
+    <script src="./script.js"></script>
+    <title>C-GBE</title>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.jsx">
+      var vConsole = new VConsole();
+
+      window.onload = login();
+
+      function login() {
+
+        window.ma.callNativeAPI("gethwssostring",{ merchantAppId: "xxxxx" },(res) => {
+
+          console.log("superapptoken res:", res);
+          console.log("superapptoken:", res.xm_string_callback_key);
+          var superapptoken = res.xm_string_callback_key;
+
+          $.ajax({
+            url: "https://xxxxx",// mini program backend service URL to get access token
+            method: "POST",
+
+            async: true,
+            data: {
+              ID: "xxx",
+              name: " xxx",
+              telephone: " xxx",
+              email: " xxx",
+              password: " xxx",
+              status: " xxx",
+              grant_type: "client_credentials",
+            },// change to corresponding data provided by mini program backend server
+
+            success: function (response) {
+              console.log("miniservertoken:", response.access_token);
+              var miniservertoken = response.access_token;
+
+              $.ajax({url: "xxx",// mini program backend service URL to get user token
+
+              method: "POST",
+              async: true,
+              headers: {
+                "Content-Type": "application/json",
+                "access-token": miniservertoken,
+              },
+              data: JSON.stringify({
+                authCode: superapptoken,
+              }),
+              success: function (response) {
+                console.log(
+                  "miniusertoken:",
+
+                  response["result"]["access-token"]
+                  );
+                  window.accesstoken = response["result"]["accesstoken"];
+                },
+                error: function (xhr, status, error) {
+                  console.log("miniusertoken create fail", error);
+                },
+              });
+            },
+            error: function (xhr, status, error) {
+              console.log("miniservertoken create fail", error);
+            },
+          });
+        }
+        )
+        .catch((e) => {
+          console.log("superapptoken create fail", e);
+        });
+      }
+
+    </script>
   </body>
 </html>

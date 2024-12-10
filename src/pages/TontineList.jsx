@@ -1,13 +1,7 @@
-// src/pages/TontineList.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Tontine } from "./Tontine";
 
-interface TontineListProps {
-  tontines: Tontine[];
-}
-
-const TontineList: React.FC<TontineListProps> = ({ tontines }) => {
+const TontineList = ({ tontines }) => {
   return (
     <div className="max-w-4xl mx-auto p-4">
       <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
@@ -45,5 +39,4 @@ const TontineList: React.FC<TontineListProps> = ({ tontines }) => {
   );
 };
 
-// Exportation par défaut du composant
 export default TontineList;
