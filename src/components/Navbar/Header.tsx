@@ -1,12 +1,28 @@
-// src/Header.js
-import React, { useState } from "react";
+// src/Header.tsx
+import React, { useEffect, useState } from "react";
+import { useUser } from "../../contexts/UserContext"; // Si tu utilises un contexte
 
 const Header = () => {
+  const [users, setUsers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useUser(); // Utilisation du contexte pour récupérer l'utilisateur connecté
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    // Récupérer les utilisateurs depuis JSON Server
+    const fetchUsers = async () => {
+      const response = await fetch("http://localhost:5000/users");
+      const data = await response.json();
+      setUsers(data);
+    };
+
+    fetchUsers();
+  }, []);
+
+  const currentUser = user || users[0]; // Utiliser l'utilisateur du contexte ou le premier utilisateur de la liste
 
   return (
     <header className="bg-[#1c3b72] text-white shadow-md">
@@ -16,11 +32,11 @@ const Header = () => {
           <img
             src="src/assets/LogoTontine3 (1).png"
             alt="Logo"
-            className="h-12 w-auto object-contain" // Taille ajustée du logo
+            className="h-12 w-auto object-contain"
           />
         </div>
 
-        {/* Navigation for large screens */}
+        {/* Navigation */}
         <nav className="hidden md:block">
           <ul className="flex space-x-6 list-none">
             <li>
@@ -58,12 +74,16 @@ const Header = () => {
           </ul>
         </nav>
 
+        {/* Affichage du nom de l'utilisateur connecté */}
+        <div className="flex items-center space-x-4">
+          <span className="text-white">{currentUser?.nom}</span>
+        </div>
+
         {/* Hamburger Menu for mobile */}
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
             className="text-white focus:outline-none bg-transparent border-none"
-            aria-label="Toggle Menu"
           >
             <svg
               className={`w-6 h-6 transition-transform duration-300 ${
@@ -85,13 +105,13 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Dropdown Menu (visible only on mobile when clicked) */}
+      {/* Mobile Menu */}
       <div
         className={`${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden md:hidden flex flex-col bg-[#1c3b72] w-full px-4 py-2 transition-all duration-500 ease-in-out transform ${
           isOpen ? "translate-y-0" : "-translate-y-10"
-        }`} // Animation fluide pour l'apparition du menu depuis le haut
+        }`}
       >
         <nav>
           <ul className="space-y-4 list-none">
@@ -135,4 +155,3 @@ const Header = () => {
 };
 
 export default Header;
-

@@ -32,7 +32,12 @@
   "tontines": [
     {
       "id": 1,
-      "name": "Tontine Mensuelle",
+      "nom": "Tontine Mensuelle",
+      "frequence": "Mensuelle",
+      "participantsActuels": 3,
+      "participantsMax": 5,
+      "montant": 50000,
+      "description": "Une tontine mensuelle avec des paiements réguliers.",
       "status": "En cours",
       "nextPaymentDate": "2024-12-15",
       "ownerId": 1,
@@ -45,7 +50,12 @@
     },
     {
       "id": 2,
-      "name": "Tontine Hebdomadaire",
+      "nom": "Tontine Hebdomadaire",
+      "frequence": "Hebdomadaire",
+      "participantsActuels": 2,
+      "participantsMax": 3,
+      "montant": 10000,
+      "description": "Une tontine hebdomadaire avec des paiements chaque semaine.",
       "status": "Terminé",
       "nextPaymentDate": "2024-12-10",
       "ownerId": 2,
@@ -55,37 +65,5 @@
         { "title": "Montant collecté", "status": "Terminé" }
       ]
     }
-  ],
-  "historiquePaiements": [
-    {
-      "id": 1,
-      "userId": 2,
-      "tontineId": 1,
-      "montant": "5000 FCFA",
-      "date": "2024-12-01",
-      "statut": "Payé"
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "tontineId": 1,
-      "montant": "10000 FCFA",
-      "date": "2024-12-02",
-      "statut": "En attente"
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "tontineId": 2,
-      "montant": "7000 FCFA",
-      "date": "2024-12-08",
-      "statut": "Retard"
-    }
-  ],
-  "cartes": {
-    "contributionsTotales": "250 000 FCFA",
-    "tontinesActives": 3,
-    "montantCollecte": "500 000 FCFA",
-    "tauxParticipation": "75%"
-  }
+  ]
 }

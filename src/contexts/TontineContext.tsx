@@ -1,6 +1,6 @@
 // src/contexts/TontineContext.tsx
 import React, { createContext, useContext, useState } from "react";
-import { Tontine } from "../pages/Tontine";
+import { Tontine } from "../pages/Tontine"; // Assurez-vous que Tontine est bien exporté depuis Tontine.tsx
 
 // Type pour le contexte
 interface TontineContextType {

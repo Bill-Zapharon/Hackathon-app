@@ -45,4 +45,5 @@ const TontineList: React.FC<TontineListProps> = ({ tontines }) => {
   );
 };
 
+// Exportation par défaut du composant
 export default TontineList;
