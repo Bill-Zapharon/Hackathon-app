@@ -124,13 +124,13 @@ const TontineDetailsAdmin: React.FC = () => {
                   <div className="space-x-2">
                     <button
                       onClick={() => handleStatusChange(member.id, "approved")}
-                      className="bg-green-500 text-white py-1 px-3 rounded-lg hover:bg-green-600"
+                      className="bg-green-500 border-none text-white py-1 px-3 rounded-lg hover:bg-green-600"
                     >
                       Approuver
                     </button>
                     <button
                       onClick={() => handleStatusChange(member.id, "rejected")}
-                      className="bg-red-500 text-white py-1 px-3 rounded-lg hover:bg-red-600"
+                      className="bg-red-500 border-none text-white py-1 px-3 rounded-lg hover:bg-red-600"
                     >
                       Rejeter
                     </button>
@@ -150,7 +150,7 @@ const TontineDetailsAdmin: React.FC = () => {
             ))}
           </ul>
           <Link to={`/user/${userId}/tontines`}>
-            <button className="mt-6 bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600">
+            <button className="mt-6 bg-blue-700 border-none text-white py-2 px-6 rounded-lg hover:bg-[#1c3b72]">
               Retour à mes tontines
             </button>
           </Link>
