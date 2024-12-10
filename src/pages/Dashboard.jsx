@@ -105,7 +105,7 @@ const Dashboard = () => {
       {/* Les Cartes */}
       <section className="-mt-12 md:-mt-16 lg:-mt-20 z-10 relative px-4">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cardData.map((data) => {
+          {cardData.map((data) => {
             return (
               <Card
                 key={data.title}
@@ -121,25 +121,31 @@ const Dashboard = () => {
       {/* Section Boutons */}
       <section className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 px-4">
         {/* Créer une Tontine */}
-        <div onClick={handleNavigate} className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div
+          onClick={handleNavigate}
+          className="bg-[#93d500] hover:bg-[#628d00] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
+        >
           <FontAwesomeIcon icon={faPlus} className="mr-3 text-2xl" />
           Créer une tontine
         </div>
 
         {/* Rejoindre une Tontine */}
-        <div onClick={handleNavigate1} className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105">
+        <div
+          onClick={handleNavigate1}
+          className="bg-blue-800 hover:bg-[#1c3b72] text-white font-semibold text-lg p-6 rounded-xl shadow-md flex items-center justify-center w-full md:w-1/2 lg:w-1/3 cursor-pointer transition-transform transform hover:scale-105"
+        >
           <FontAwesomeIcon icon={faSignInAlt} className="mr-3 text-2xl" />
           Rejoindre une tontine
         </div>
       </section>
-      
+
       <section className="mt-8">
         <div className="flex justify-between">
           <h2 className="text-lg font-semibold text-textPrimary mb-6">
             Tontines Actives
           </h2>
           <a
-            href=""
+            href="/user/:userId/tontines"
             className="group no-underline flex items-center space-x-1 hover:underline text-textPrimary hover:text-secondary"
           >
             <span>Voir plus</span>
