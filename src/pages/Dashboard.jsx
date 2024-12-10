@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "../components/Card";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {
   faMoneyBillWave,
   faUsers,
@@ -9,15 +9,19 @@ import {
   faChevronRight,
   faPlus, // Ajoutez cette ligne
   faSignInAlt, // Ajoutez cette ligne
-} from "@fortawesome/free-solid-svg-icons"
+} from "@fortawesome/free-solid-svg-icons";
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate('/creertontine');
+    navigate("/creertontine");
   };
   const handleNavigate1 = () => {
-    navigate('/listestontine');
+    navigate("/listestontine");
+  };
+
+  const handleDetailsClick = () => {
+    navigate("/infotontine");
   };
   const cardData = [
     {
@@ -69,7 +73,6 @@ const Dashboard = () => {
     },
   ];
 
-  
   return (
     <div className="bg-grisClair w-full">
       {/* Section Image */}
@@ -159,7 +162,10 @@ const Dashboard = () => {
                 </p>
               </div>
               <div>
-                <button className="px-4 py-2 outline-none border-none cursor-pointer bg-[#93d500] text-white text-sm font-medium rounded-md hover:bg-[#628d00] transition-colors duration-200">
+                <button
+                  onClick={handleDetailsClick}
+                  className="px-4 py-2 outline-none border-none cursor-pointer bg-[#93d500] text-white text-sm font-medium rounded-md hover:bg-[#628d00] transition-colors duration-200"
+                >
                   Voir détails
                   {tontine.isOwner && (
                     <span className="ml-2 text-xs font-light text-gray-200">
